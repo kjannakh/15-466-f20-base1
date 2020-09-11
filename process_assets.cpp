@@ -16,10 +16,10 @@ void write_palette_and_tile(std::vector< glm::u8vec4 > & pixels, std::ostream *t
 	uint8_t idx0=0, idx1=0;
 
 	//put colors from png into a palette and create tiles
-	for (int p = 0; p < pixels.size(); p++) {
+	for (unsigned int p = 0; p < pixels.size(); p++) {
 		glm::u8vec4 pixel = pixels[p];
 		int idx = -1;
-		for (int c = 0; c < pal.size(); c++) {
+		for (unsigned int c = 0; c < pal.size(); c++) {
 			glm::u8vec4 color = pal[c];
 			if (pixel == color) {
 				idx = c;
@@ -68,10 +68,10 @@ std::vector< glm::u8vec4 > write_palette(std::vector< glm::u8vec4 >& pixels, std
 	std::vector< glm::u8vec4 > pal;
 
 	//put colors from png into a palette and create tiles
-	for (int p = 0; p < pixels.size(); p++) {
+	for (unsigned int p = 0; p < pixels.size(); p++) {
 		glm::u8vec4 pixel = pixels[p];
 		int idx = -1;
-		for (int c = 0; c < pal.size(); c++) {
+		for (unsigned int c = 0; c < pal.size(); c++) {
 			glm::u8vec4 color = pal[c];
 			if (pixel == color) {
 				idx = c;
@@ -89,15 +89,14 @@ std::vector< glm::u8vec4 > write_palette(std::vector< glm::u8vec4 >& pixels, std
 void write_tile(std::vector< glm::u8vec4 >& pixels, std::ostream* to, std::vector< glm::u8vec4 > pal, const char* tile0, const char* tile1) {
 	std::vector< uint8_t > bit0;
 	std::vector< uint8_t > bit1;
-	int color_count = 0;
 	uint8_t idx0 = 0, idx1 = 0, idx = -1;
 	glm::u8vec4 color;
 	glm::u8vec4 pixel;
 
-	for (int p = 0; p < pixels.size(); p++) {
+	for (unsigned int p = 0; p < pixels.size(); p++) {
 		pixel = pixels[p];
 		idx = -1;
-		for (int c = 0; c < pal.size(); c++) {
+		for (unsigned int c = 0; c < pal.size(); c++) {
 			color = pal[c];
 			if (pixel == color) {
 				idx = c;
