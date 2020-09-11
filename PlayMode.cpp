@@ -97,7 +97,7 @@ struct SpriteAtlas {
 };
 
 //global Load code based off of https://15466.courses.cs.cmu.edu/lesson/assets
-Load< SpriteAtlas > atlas(LoadTagDefault, [&](){
+Load< SpriteAtlas > atlas(LoadTagDefault, [](){
 	SpriteAtlas* ret = new SpriteAtlas(data_path("../assets/assets.txt"));
 	return ret;
 });
